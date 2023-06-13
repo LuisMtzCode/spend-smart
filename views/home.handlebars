@@ -1,0 +1,82 @@
+{{> charts }}
+
+<div class="container is-max-desktop">
+    <section class="section">
+        <h3 class="title">Agrega un gasto</h3>
+        <div class="columns is-multiline categories-expenses">
+            {{#each expensesCategories as | category | }}
+            <div class="column is-one-third" data-id="{{category.id}}">
+                <div class="card">
+                    <i class="fa-solid fa-{{category.icon}} category-icon"
+                        style="background-color: {{category.color}};"></i>
+                    <p class="category-title">{{category.title}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</div>
+
+<div class="container is-max-desktop">
+    <section class="section">
+        <h3 class="title">Transacciones</h3>
+        <div class="panel list-transactions">
+            <div class="transaction-item">
+                <div class="transaction-icon">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="transaction-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
+                    doloremque!
+                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
+                    corporis.
+                </div>
+                <div class="transaction-action">
+                    <button class="button">Button</button>
+                </div>
+            </div>
+            <div class="transaction-item">
+                <div class="transaction-icon">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="transaction-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
+                    doloremque!
+                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
+                    corporis.
+                </div>
+                <div class="transaction-action">
+                    <button class="button">Button</button>
+                </div>
+            </div>
+            <div class="transaction-item">
+                <div class="transaction-icon">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="transaction-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
+                    doloremque!
+                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
+                    corporis.
+                </div>
+                <div class="transaction-action">
+                    <button class="button">Button</button>
+                </div>
+            </div>
+            <div class="transaction-item">
+                <div class="transaction-icon">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <div class="transaction-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
+                    doloremque!
+                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
+                    corporis.
+                </div>
+                <div class="transaction-action">
+                    <button class="button">Button</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,24 @@
+{
+	"info": {
+		"_postman_id": "81798b7e-a7ce-4a3e-85d0-e4cda0f85575",
+		"name": "SpendSmart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27906231"
+	},
+	"item": [
+		{
+			"name": "Get Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}",
+					"host": [
+						"{{BASE_URL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

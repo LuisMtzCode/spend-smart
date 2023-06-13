@@ -1,0 +1,122 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f2f6f9;
+  line-height: 1;
+}
+
+/* Hero Price */
+.hero-price {
+  background-color: #0a7afe;
+}
+
+.hero-price .hero-price--title {
+  color: #e6e6e6;
+}
+
+.hero-price .hero-price--price {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Expenses categories */
+
+.categories-expenses .column {
+  display: flex;
+  justify-content: center;
+}
+
+.categories-expenses .column:nth-child(odd) {
+  /* justify-content: flex-end; */
+}
+
+.categories-expenses .card {
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 200px;
+  height: 200px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.categories-expenses .card:hover .category-icon {
+  padding: 1.1rem;
+}
+
+.categories-expenses .card .category-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #e6e6e6; */
+  background-color: #0a7afe;
+  border-radius: 50%;
+  padding: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.categories-expenses .card .category-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0a7afe;
+}
+
+/* List of transactions */
+.list-transactions {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.list-transactions .transaction-item {
+  display: flex;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1rem 0;
+}
+
+.transaction-item > div {
+  padding: 0.5rem;
+}
+
+.transaction-item .transaction-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal of Icons */
+.icons-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . . . ."
+    ". . . . . ."
+    ". . . . . .";
+}
+
+.icons-container .icon-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  /* box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2); */
+  border-radius: 1rem;
+  color: #000;
+  padding: 1rem;
+  /* margin: 0.5rem; */
+  cursor: pointer;
+}
+
+.icons-container .icon-item:hover,
+.icons-container .icon-item.active {
+  background-color: #0a7afe;
+  color: #fff;
+}

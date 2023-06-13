@@ -1,0 +1,40 @@
+{
+    "moneyAvailable": 123.45,
+    "expensesCategories": [{
+        "id": 1,
+        "title": "Comida",
+        "icon": "utensils",
+        "color": "#FF0000"
+    },
+    {
+        "id": 2,
+        "title": "Transporte",
+        "icon": "bus",
+        "color": "#00FF00"
+    },
+    {
+        "id": 3,
+        "title": "Entretenimiento",
+        "icon": "gamepad",
+        "color": "#0000FF"
+    },
+    {
+        "id": 4,
+        "title": "Salud",
+        "icon": "heart-pulse",
+        "color": "#FFFF00"
+    },
+    {
+        "id": 5,
+        "title": "Ropa",
+        "icon": "shirt",
+        "color": "#FF00FF"
+    },
+    {
+        "id": 6,
+        "title": "Compras",
+        "icon": "cart-shopping",
+        "color": "#00FFFF"
+    }
+]
+}

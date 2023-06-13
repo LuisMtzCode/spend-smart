@@ -1,0 +1,71 @@
+<div class="container is-max-desktop">
+    <section class="section">
+        <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control has-icons-left">
+                <input class="input" type="text" placeholder="Factura" value="">
+                <span class="icon is-left">
+                    <i class="fa-solid fa-font"></i>
+                </span>
+            </div>
+            <p class="help is-success">This username is available</p>
+        </div>
+
+        <div class="field">
+            <label class="label">Cantidad </label>
+            <div class="control has-icons-left">
+                <input class="input" type="number" placeholder="100">
+                <span class="icon is-left">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <label class="label">Icono</label>
+            <button class="button js-modal-trigger" data-target="modal-js-example">
+                Selecciona un icono
+            </button>
+            <div>
+                <span class="tag is-link is-large mt-4 is-hidden">
+                    <i id="iconActive"></i>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link">Guardar</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light button-cancel">Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    {{!-- Modal of icons --}}
+    <div class="modal" id="modal-js-example">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Selecciona un icono</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="icons-container">
+                    {{#each icons as | icon | }}
+                    <div class="icon-item box" data-icon="{{icon}}">
+                        <i class="fa-solid fa-{{icon}}"></i>
+                    </div>
+                    {{/each}}
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Guardar</button>
+                <button class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+</div>
