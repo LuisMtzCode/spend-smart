@@ -1,5 +1,6 @@
 const ctx = document.getElementById("myChart");
 
+// eslint-disable-next-line no-undef
 new Chart(ctx, {
   type: "bar",
   data: {
@@ -22,7 +23,7 @@ new Chart(ctx, {
 });
 
 const ctx2 = document.getElementById("myChart2");
-
+// eslint-disable-next-line no-undef
 new Chart(ctx2, {
   type: "doughnut",
   data: {
