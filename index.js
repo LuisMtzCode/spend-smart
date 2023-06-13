@@ -8,14 +8,14 @@ app.set("view engine", "handlebars");
 app.set("views", "./views");
 app.use(express.static("public/"));
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   const userInfo = getUserInfo();
   res.render("home", {
     ...userInfo,
   });
 });
 
-app.get("/add", (req, res) => {
+app.get("/add", (_req, res) => {
   const userInfo = getUserInfo();
   const icons = getIcons();
 

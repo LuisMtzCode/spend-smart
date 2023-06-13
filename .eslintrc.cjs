@@ -3,11 +3,15 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    jquery: true,
   },
-  extends: ["eslint:recommended", "plugin:prettier/recommended", "jquery"],
+  extends: ["eslint:recommended", "jquery", "prettier"],
+  plugins: ["prettier"],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  rules: {},
+  rules: {
+    "prettier/prettier": "error",
+  },
 };
