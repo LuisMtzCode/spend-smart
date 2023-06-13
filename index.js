@@ -15,7 +15,7 @@ app.get("/", (_req, res) => {
   });
 });
 
-app.get("/add",    (_req, res) => {
+app.get("/add", (_req, res) => {
   const userInfo = getUserInfo();
   const icons = getIcons();
 
