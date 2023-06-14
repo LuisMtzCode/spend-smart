@@ -1,8 +1,8 @@
 import { formatMoney } from "../utils/index.js";
 
 import * as fs from "fs";
-const userInfoJSON = JSON.parse(fs.readFileSync("./userInfo.json"));
-const iconsJSON = JSON.parse(fs.readFileSync("./icons.json"));
+const userInfoJSON = JSON.parse(fs.readFileSync("./db/userInfo.json"));
+const iconsJSON = JSON.parse(fs.readFileSync("./db/icons.json"));
 
 export const getUserInfo = () => {
   //TODO: Make a call to the database
