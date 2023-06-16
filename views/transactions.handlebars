@@ -1,0 +1,82 @@
+<div class="container is-max-desktop form-transactions">
+    <div class="card mt-2">
+        <section class="section">
+            <h3 class="title">Transacciones</h3>
+            <input type="hidden" id="transactionId" value="{{transaction.id}}">
+            <div class="field">
+                <label class="label">Descripción</label>
+                <div class="control has-icons-left">
+                    <input class="input" type="text" placeholder="Factura" id="description"
+                        value="{{transaction.description}}">
+                    <span class="icon is-left">
+                        <i class="fa-solid fa-font"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Cantidad </label>
+                <div class="control has-icons-left">
+                    <input class="input" type="number" placeholder="100" id="amount" value="{{transaction.amount}}">
+                    <span class="icon is-left">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label class="label">Icono</label>
+                <button class="button js-modal-trigger" data-target="modal-js-example">
+                    Selecciona un icono
+                </button>
+                <div>
+                    <input type="hidden" id="iconSelected" value="{{transaction.icon}}">
+
+                    <span class="tag is-info is-light is-large p-4 mt-4 {{#if transaction}} {{else}}is-hidden{{/if}}">
+                        {{#if transaction}}
+                        <i id="iconActive" class="fa-solid fa-{{transaction.icon}}"></i>
+                        {{else}}
+                        <i id="iconActive fa-solid"></i>
+                        {{/if}}
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link" id="buttonExpenses">Guardar</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light button-cancel">Cancelar</button>
+                </div>
+            </div>
+            <p class="error-expenses is-hidden has-text-danger"></p>
+        </section>
+    </div>
+
+    {{!-- Modal of icons --}}
+    <div class="modal" id="modal-js-example">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Selecciona un icono</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="icons-container">
+                    {{#each icons as | icon | }}
+                    <div class="icon-item box" data-icon="{{icon}}">
+                        <i class="fa-solid fa-{{icon}}"></i>
+                    </div>
+                    {{/each}}
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Guardar</button>
+                <button class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+</div>
