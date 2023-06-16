@@ -7,6 +7,12 @@ const transactionsJSON = JSON.parse(
 
 export const addExpense = (_expense) => {
   //TODO: Make a call to the database
+  return { error: false };
+};
+
+export const editExpense = (_expense) => {
+  //TODO: Make a call to the database
+  return { error: false };
 };
 
 export const getTransaction = (id) => {
@@ -19,12 +25,24 @@ export const getTransaction = (id) => {
   return transactions.find((transaction) => `${transaction.id}` === id);
 };
 
-export const getTransactions = () => {
+export const getTransactions = (queryParams) => {
   //TODO: Make a call to the database
-  const transactions = transactionsJSON.map((transaction) => ({
+  const { type } = queryParams;
+  let transactions = transactionsJSON.map((transaction) => ({
     ...transaction,
     displayAmount: formatMoney(transaction.amount),
   }));
 
+  if (type) {
+    transactions = transactions.filter(
+      (transaction) => transaction.type === type
+    );
+  }
+
   return transactions;
+};
+
+export const deleteTransaction = (_id) => {
+  //TODO: Make a call to the database
+  return { error: false };
 };

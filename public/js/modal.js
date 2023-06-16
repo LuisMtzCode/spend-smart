@@ -1,49 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Functions to open and close a modal
-  function openModal($el) {
-    $el.classList.add("is-active");
-  }
-
-  function closeModal($el) {
-    $el.classList.remove("is-active");
-  }
-
-  function closeAllModals() {
-    (document.querySelectorAll(".modal") || []).forEach(($modal) => {
-      closeModal($modal);
-    });
-  }
-
+$(document).ready(function () {
   // Add a click event on buttons to open a specific modal
-  (document.querySelectorAll(".js-modal-trigger") || []).forEach(($trigger) => {
-    const modal = $trigger.dataset.target;
-    const $target = document.getElementById(modal);
-
-    $trigger.addEventListener("click", () => {
-      openModal($target);
-    });
+  $(document).on("click", ".js-modal-trigger", function () {
+    $(".modal#" + $(this).data("target")).addClass("is-active");
   });
 
   // Add a click event on various child elements to close the parent modal
-  (
-    document.querySelectorAll(
-      ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
-    ) || []
-  ).forEach(($close) => {
-    const $target = $close.closest(".modal");
-
-    $close.addEventListener("click", () => {
-      closeModal($target);
-    });
-  });
+  $(document).on(
+    "click",
+    ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button",
+    function () {
+      const target = $(this).closest(".modal");
+      $(target).removeClass("is-active");
+    }
+  );
 
   // Add a keyboard event to close all modals
-  document.addEventListener("keydown", (event) => {
+  $(document).on("keydown", function (event) {
     const e = event || window.event;
 
     if (e.keyCode === 27) {
       // Escape key
-      closeAllModals();
+      $(".modal").removeClass("is-active");
     }
   });
 });
