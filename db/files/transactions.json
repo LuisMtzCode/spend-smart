@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "description": "Comestibles",
+    "icon": "utensils",
+    "amount": 50.00,
+    "type": "expense"
+  },
+  {
+    "id": 2,
+    "description": "Gasolina",
+    "icon": "gas-pump",
+    "amount": 30.00,
+    "type": "expense"
+  },
+  {
+    "id": 3,
+    "description": "Cena",
+    "icon": "utensils",
+    "amount": 25.00,
+    "type": "expense"
+  },
+  {
+    "id": 4,
+    "description": "Película",
+    "icon": "ticket",
+    "amount": 15.00,
+    "type": "expense"
+  },
+  {
+    "id": 5,
+    "description": "Café",
+    "icon": "mug-saucer",
+    "amount": 5.00,
+    "type": "expense"
+  },
+  {
+    "id": 6,
+    "description": "Libros",
+    "icon": "book",
+    "amount": 20.00,
+    "type": "expense"
+  },
+  {
+    "id": 7,
+    "description": "Ropa",
+    "icon": "shirt",
+    "amount": 75.00,
+    "type": "expense"
+  },
+  {
+    "id": 8,
+    "description": "Regalo",
+    "icon": "gift",
+    "amount": 50.00,
+    "type": "expense"
+  },
+  {
+    "id": 9,
+    "description": "Música",
+    "icon": "music",
+    "amount": 10.00,
+    "type": "expense"
+  },
+  {
+    "id": 10,
+    "description": "Corte de pelo",
+    "icon": "scissors",
+    "amount": 30.00,
+    "type": "expense"
+  }
+]

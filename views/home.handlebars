@@ -1,82 +1,61 @@
-{{> charts }}
-
 <div class="container is-max-desktop">
     <section class="section">
-        <h3 class="title">Agrega un gasto</h3>
-        <div class="columns is-multiline categories-expenses">
-            {{#each expensesCategories as | category | }}
-            <div class="column is-one-third" data-id="{{category.id}}">
-                <div class="card">
-                    <i class="fa-solid fa-{{category.icon}} category-icon"
-                        style="background-color: {{category.color}};"></i>
-                    <p class="category-title">{{category.title}}</p>
+        <div class="panel">
+            <h3 class="title">Estadisticas</h3>
+
+            {{> charts }}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="panel">
+            <h3 class="title">Agrega un gasto</h3>
+            <div class="columns is-multiline categories-expenses">
+                {{#each expensesCategories as | category | }}
+                <div class="column is-one-third" data-id="{{category.id}}">
+                    <div class="category-icon-container">
+                        <div class="category-icon">
+                            <i class="fa-solid fa-{{category.icon}}"></i>
+                        </div>
+
+                        <p class="category-title">{{category.title}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="panel list-transactions">
+            <h3 class="title">Transacciones</h3>
+            {{#each transactions as | transaction | }}
+            <div class="transaction-item trasaction-type-{{transaction.type}}">
+                <div class="transaction-icon-container">
+                    <div class="transaction-icon">
+                        <i class="fa-solid fa-{{transaction.icon}}"></i>
+                    </div>
+                </div>
+                <div class="transaction-content">
+                    {{transaction.description}}
+                    <div class="transaction-type">
+                        {{#ifEquals transaction.type "income"}}
+                        Ingreso
+                        {{/ifEquals}}
+                        {{#ifEquals transaction.type "expense"}}
+                        Gasto
+                        {{/ifEquals}}
+                    </div>
+                </div>
+                <div class="transaction-amount">
+                    {{transaction.displayAmount}}
+                </div>
+                <div class="transaction-action">
+                    <button class="button editTransaction" data-id="{{transaction.id}}">Editar</button>
                 </div>
             </div>
             {{/each}}
-        </div>
-    </section>
-</div>
 
-<div class="container is-max-desktop">
-    <section class="section">
-        <h3 class="title">Transacciones</h3>
-        <div class="panel list-transactions">
-            <div class="transaction-item">
-                <div class="transaction-icon">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div class="transaction-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
-                    doloremque!
-                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
-                    corporis.
-                </div>
-                <div class="transaction-action">
-                    <button class="button">Button</button>
-                </div>
-            </div>
-            <div class="transaction-item">
-                <div class="transaction-icon">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div class="transaction-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
-                    doloremque!
-                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
-                    corporis.
-                </div>
-                <div class="transaction-action">
-                    <button class="button">Button</button>
-                </div>
-            </div>
-            <div class="transaction-item">
-                <div class="transaction-icon">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div class="transaction-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
-                    doloremque!
-                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
-                    corporis.
-                </div>
-                <div class="transaction-action">
-                    <button class="button">Button</button>
-                </div>
-            </div>
-            <div class="transaction-item">
-                <div class="transaction-icon">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div class="transaction-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita quam consequatur placeat
-                    doloremque!
-                    Facilis, in? Laborum ipsa itaque odio soluta aspernatur sit illo in distinctio, facilis harum, iure
-                    corporis.
-                </div>
-                <div class="transaction-action">
-                    <button class="button">Button</button>
-                </div>
-            </div>
         </div>
     </section>
 </div>
