@@ -1,0 +1,29 @@
+{{#each transactions as | transaction | }}
+<div class="transaction-item transaction-type-{{transaction.type}}">
+    <div class="transaction-icon-container">
+        <div class="transaction-icon">
+            <i class="fa-solid fa-{{transaction.icon}}"></i>
+        </div>
+    </div>
+    <div class="transaction-content">
+        {{transaction.description}}
+        <div class="transaction-type">
+            {{#ifEquals transaction.type "income"}}
+            Ingreso
+            {{/ifEquals}}
+            {{#ifEquals transaction.type "expense"}}
+            Gasto
+            {{/ifEquals}}
+        </div>
+    </div>
+    <div class="transaction-amount">
+        {{transaction.displayAmount}}
+    </div>
+    <div class="transaction-action">
+        <button class="button is-ghost editTransaction" data-id="{{transaction.id}}"><i
+                class="fa-solid fa-pencil"></i></button>
+        <button class="button is-ghost deleteTransaction js-modal-trigger" data-target="modal-delete-confirmation"
+            data-id="{{transaction.id}}"><i class="fa-solid fa-trash"></i></button>
+    </div>
+</div>
+{{/each}}

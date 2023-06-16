@@ -4,22 +4,30 @@ import {
   getIcons,
   getTransaction,
   getTransactions,
+  deleteTransaction,
 } from "../db/index.js";
 
 const router = express.Router();
 const MAIN_TEMPLATE = "transactions";
 
-router.get("/", (_req, res) => {
-  res.send(getTransactions());
+router.get("/", (req, res) => {
+  const queryParams = req.query;
+  res.render("transaction-list", {
+    transactions: getTransactions(queryParams),
+    layout: false,
+  });
 });
 
-router.get("/add", (_req, res) => {
+router.get("/add/:category", (req, res) => {
+  const category = req.params.category;
+
   const userInfo = getUserInfo();
   const icons = getIcons();
 
   res.render(MAIN_TEMPLATE, {
     ...userInfo,
     icons,
+    category,
   });
 });
 
@@ -47,6 +55,12 @@ router.post("/", (req, res) => {
     // Add
   }
   res.json({ error });
+});
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+
+  res.json(deleteTransaction(id));
 });
 
 export default router;

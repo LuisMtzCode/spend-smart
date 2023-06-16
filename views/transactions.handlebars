@@ -1,5 +1,5 @@
 <div class="container is-max-desktop form-transactions">
-    <div class="card mt-2">
+    <div class="card mt-6">
         <section class="section">
             <h3 class="title">Transacciones</h3>
             <input type="hidden" id="transactionId" value="{{transaction.id}}">
@@ -27,19 +27,27 @@
 
             <div class="field">
                 <label class="label">Icono</label>
-                <button class="button js-modal-trigger" data-target="modal-js-example">
+                <button class="button js-modal-trigger" data-target="modal-icons">
                     Selecciona un icono
                 </button>
                 <div>
-                    <input type="hidden" id="iconSelected" value="{{transaction.icon}}">
+                    <input type="hidden" id="iconSelected" value="{{transaction.icon}}{{category}}">
 
-                    <span class="tag is-info is-light is-large p-4 mt-4 {{#if transaction}} {{else}}is-hidden{{/if}}">
-                        {{#if transaction}}
+                    {{#if transaction}}
+                    <span class="tag is-info is-light is-large p-4 mt-4">
                         <i id="iconActive" class="fa-solid fa-{{transaction.icon}}"></i>
-                        {{else}}
-                        <i id="iconActive fa-solid"></i>
-                        {{/if}}
                     </span>
+                    {{else}}
+                    {{#if category}}
+                    <span class="tag is-info is-light is-large p-4 mt-4">
+                        <i id="iconActive" class="fa-solid fa-{{category}}"></i>
+                    </span>
+                    {{else}}
+                    <span class="tag is-info is-light is-large p-4 mt-4 is-hidden">
+                        <i id="iconActive" class="fa-solid fa-{{category}}"></i>
+                    </span>
+                    {{/if}}
+                    {{/if}}
                 </div>
             </div>
 
@@ -57,7 +65,7 @@
     </div>
 
     {{!-- Modal of icons --}}
-    <div class="modal" id="modal-js-example">
+    <div class="modal" id="modal-icons">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">

@@ -21,11 +21,12 @@ app.set("view engine", "handlebars");
 app.set("views", "./views");
 app.use(express.static("public/"));
 
-app.get("/", (_req, res) => {
+app.get("/", (req, res) => {
+  const queryParams = req.query;
   const userInfo = getUserInfo();
   res.render("home", {
     ...userInfo,
-    transactions: getTransactions(),
+    transactions: getTransactions(queryParams),
   });
 });
 

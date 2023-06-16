@@ -67,6 +67,6 @@
     "description": "Corte de pelo",
     "icon": "scissors",
     "amount": 30.00,
-    "type": "expense"
+    "type": "income"
   }
 ]

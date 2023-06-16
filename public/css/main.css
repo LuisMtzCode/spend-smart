@@ -20,9 +20,48 @@ body {
   margin: 1rem;
 }
 
+.title-container {
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters .tags {
+  cursor: pointer;
+  flex-wrap: nowrap;
+}
+
+.filters .tags .tag {
+  font-size: 0.9rem;
+}
+
+/* Charts */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 500px;
+}
+
+/* Navbar */
+.navbar-logo .navbar-item img{
+  max-height: none;
+}
+
+.navbar-logo .navbar-brand {
+  justify-content: center;
+}
+
 /* Hero Price */
+
 .hero-price {
-  background-color: #0a7afe;
+  background: rgb(0,84,182);
+  background: linear-gradient(90deg, rgba(0,84,182,1) 56%, rgba(0,212,255,1) 100%);
 }
 
 .hero-price .hero-price--title {
@@ -91,11 +130,14 @@ body {
 .list-transactions .transaction-item {
   display: flex;
   border-bottom: 1px solid #e6e6e6;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .transaction-item > div {
   padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .transaction-item .transaction-icon {
@@ -106,12 +148,12 @@ body {
   padding: 0.8rem;
 }
 
-.transaction-item.trasaction-type-expense .transaction-icon {
+.transaction-item.transaction-type-expense .transaction-icon {
   background-color: rgba(254, 112, 10, 0.1);
   color: #fe700a;
 }
 
-.transaction-item.trasaction-type-income .transaction-icon {
+.transaction-item.transaction-type-income .transaction-icon {
   background-color: rgba(10, 124, 254, 0.1);
   color: #0a7afe;
 }
@@ -137,10 +179,40 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 900;
   letter-spacing: 0.5;
   color: #000;
+}
+
+.transaction-item.transaction-type-expense .transaction-amount {
+  color: #fe700a;
+}
+.transaction-item.transaction-type-expense .transaction-amount::before {
+  content: "-";
+}
+
+.transaction-item.transaction-type-income .transaction-amount {
+  color: #0a7afe;
+}
+.transaction-item.transaction-type-income .transaction-amount::before {
+  content: "+";
+}
+
+.transaction-item .transaction-action {
+  flex-direction: column;
+}
+
+.transaction-item .transaction-action .editTransaction:hover,
+.transaction-item .transaction-action .deleteTransaction:hover {
+  text-decoration: none;
+}
+
+.transaction-item .transaction-action .editTransaction {
+  color: #0a5bfe;
+}
+.transaction-item .transaction-action .deleteTransaction {
+  color:#ff0000;
 }
 
 /* Modal of Icons */

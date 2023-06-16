@@ -12,9 +12,9 @@
             <h3 class="title">Agrega un gasto</h3>
             <div class="columns is-multiline categories-expenses">
                 {{#each expensesCategories as | category | }}
-                <div class="column is-one-third" data-id="{{category.id}}">
+                <div class="column is-one-third">
                     <div class="category-icon-container">
-                        <div class="category-icon">
+                        <div class="category-icon" data-category="{{category.icon}}">
                             <i class="fa-solid fa-{{category.icon}}"></i>
                         </div>
 
@@ -28,34 +28,40 @@
 
     <section class="section">
         <div class="panel list-transactions">
-            <h3 class="title">Transacciones</h3>
-            {{#each transactions as | transaction | }}
-            <div class="transaction-item trasaction-type-{{transaction.type}}">
-                <div class="transaction-icon-container">
-                    <div class="transaction-icon">
-                        <i class="fa-solid fa-{{transaction.icon}}"></i>
+            <div class="is-flex">
+                <div class="title-container">
+                    <h3 class="title">Transacciones</h3>
+                </div>
+                <div class="filters">
+                    <div class="tags has-addons">
+                        <span class="tag is-primary">Todo</span>
+                        <span class="tag" data-filter="income">Ingresos</span>
+                        <span class="tag" data-filter="expense">Gastos</span>
                     </div>
-                </div>
-                <div class="transaction-content">
-                    {{transaction.description}}
-                    <div class="transaction-type">
-                        {{#ifEquals transaction.type "income"}}
-                        Ingreso
-                        {{/ifEquals}}
-                        {{#ifEquals transaction.type "expense"}}
-                        Gasto
-                        {{/ifEquals}}
-                    </div>
-                </div>
-                <div class="transaction-amount">
-                    {{transaction.displayAmount}}
-                </div>
-                <div class="transaction-action">
-                    <button class="button editTransaction" data-id="{{transaction.id}}">Editar</button>
                 </div>
             </div>
-            {{/each}}
 
+            <div id="transactionsContainer">
+                {{> transactions-list }}
+            </div>
         </div>
     </section>
+</div>
+
+{{!-- Modal of confirmation --}}
+<div class="modal" id="modal-delete-confirmation">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Selecciona un icono</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            Estás seguro de eliminar esta transacción?
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-danger" id="deleteTransactionModal">Eliminar</button>
+            <button class="button is-light" id="cancelDeleteTransaction">Cancelar</button>
+        </footer>
+    </div>
 </div>
