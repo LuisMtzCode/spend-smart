@@ -5,6 +5,8 @@ import {
   getTransaction,
   getTransactions,
   deleteTransaction,
+  getChartIncomesVsExpenses,
+  getChartWeekExpenses,
 } from "../db/index.js";
 
 const router = express.Router();
@@ -61,6 +63,13 @@ router.delete("/:id", (req, res) => {
   const id = req.params.id;
 
   res.json(deleteTransaction(id));
+});
+
+router.get("/charts", (_req, res) => {
+  res.json({
+    incomesVsExpenses: getChartIncomesVsExpenses(),
+    weekExpenses: getChartWeekExpenses(),
+  });
 });
 
 export default router;

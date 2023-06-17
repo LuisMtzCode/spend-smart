@@ -1,5 +1,5 @@
 {{#each transactions as | transaction | }}
-<div class="transaction-item transaction-type-{{transaction.type}}">
+<div class="transaction-item transaction-type-{{#isExpenseClassname transaction}}{{/isExpenseClassname}}">
     <div class="transaction-icon-container">
         <div class="transaction-icon">
             <i class="fa-solid fa-{{transaction.icon}}"></i>
@@ -8,12 +8,11 @@
     <div class="transaction-content">
         {{transaction.description}}
         <div class="transaction-type">
-            {{#ifEquals transaction.type "income"}}
-            Ingreso
-            {{/ifEquals}}
-            {{#ifEquals transaction.type "expense"}}
+            {{#if (isExpense transaction) }}
             Gasto
-            {{/ifEquals}}
+            {{else}}
+            Ingreso
+            {{/if}}
         </div>
     </div>
     <div class="transaction-amount">

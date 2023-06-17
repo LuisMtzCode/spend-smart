@@ -3,70 +3,70 @@
     "id": 1,
     "description": "Comestibles",
     "icon": "utensils",
-    "amount": 50.00,
-    "type": "expense"
+    "amount": -50.00,
+    "date": "2023-06-14T23:00:00.270Z"
   },
   {
     "id": 2,
     "description": "Gasolina",
     "icon": "gas-pump",
-    "amount": 30.00,
-    "type": "expense"
+    "amount": -30.00,
+    "date": "2023-06-16T23:00:00.270Z"
   },
   {
     "id": 3,
     "description": "Cena",
     "icon": "utensils",
-    "amount": 25.00,
-    "type": "expense"
+    "amount": -25.00,
+    "date": "2023-06-15T23:00:00.270Z"
   },
   {
     "id": 4,
     "description": "Película",
     "icon": "ticket",
-    "amount": 15.00,
-    "type": "expense"
+    "amount": -15.00,
+    "date": "2023-06-13T23:00:00.270Z"
   },
   {
     "id": 5,
     "description": "Café",
     "icon": "mug-saucer",
     "amount": 5.00,
-    "type": "expense"
+    "date": "2023-06-16T23:00:00.270Z"
   },
   {
     "id": 6,
     "description": "Libros",
     "icon": "book",
-    "amount": 20.00,
-    "type": "expense"
+    "amount": -20.00,
+    "date": "2023-06-16T23:00:00.270Z"
   },
   {
     "id": 7,
     "description": "Ropa",
     "icon": "shirt",
-    "amount": 75.00,
-    "type": "expense"
+    "amount": -75.00,
+    "date": "2023-06-16T23:00:00.270Z"
   },
   {
     "id": 8,
     "description": "Regalo",
     "icon": "gift",
-    "amount": 50.00,
-    "type": "expense"
+    "amount": -50.00,
+    "date": "2023-06-15T23:00:00.270Z"
   },
   {
     "id": 9,
     "description": "Música",
     "icon": "music",
-    "amount": 10.00,
-    "type": "expense"
+    "amount": -10.00,
+    "date": "2023-06-16T23:00:00.270Z"
   },
   {
     "id": 10,
     "description": "Corte de pelo",
     "icon": "scissors",
     "amount": 30.00,
-    "type": "income"
+    "date": "2023-06-16T23:00:00.270Z"
   }
 ]
