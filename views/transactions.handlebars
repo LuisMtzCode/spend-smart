@@ -3,6 +3,21 @@
         <section class="section">
             <h3 class="title">Transacciones</h3>
             <input type="hidden" id="transactionId" value="{{transaction.id}}">
+
+            <div class="field tag-transaction-type">
+                {{#if transaction}}
+
+                {{#if (isExpense transaction) }}
+                <span class="tag is-danger is-medium">Gasto</span>
+                {{else}}
+                <span class="tag is-success is-medium">Ingreso</span>
+                {{/if}}
+
+                {{else}}
+                <span class="tag is-success is-medium">Ingreso</span>
+                {{/if}}
+            </div>
+
             <div class="field">
                 <label class="label">Descripción</label>
                 <div class="control has-icons-left">

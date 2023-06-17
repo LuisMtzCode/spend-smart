@@ -26,6 +26,20 @@ $(document).ready(function () {
     });
   });
 
+  // Form expenses
+  $("#amount").on("input", function () {
+    var amount = $(this).val();
+    var tag = $(".tag-transaction-type .tag").removeClass(
+      "is-success is-danger"
+    );
+
+    if (amount < 0) {
+      $(tag).addClass("is-danger").text("Gasto");
+    } else {
+      $(tag).addClass("is-success").text("Ingreso");
+    }
+  });
+
   $("#buttonExpenses").click(function () {
     $(this).addClass("is-loading");
     var expense = {

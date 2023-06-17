@@ -11,6 +11,12 @@ const hbs = create({
     ifEquals(arg1, arg2, options) {
       return arg1 === arg2 ? options.fn(this) : options.inverse(this);
     },
+    isExpense(arg1) {
+      return arg1.amount < 0;
+    },
+    isExpenseClassname(arg1, _options) {
+      return arg1.amount < 0 ? "expense" : "income";
+    },
   },
 });
 
