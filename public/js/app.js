@@ -57,30 +57,30 @@ $(document).ready(function () {
       }
     }).always(function () {
       $("#buttonExpenses").removeClass("is-loading");
-    });
+    }, "json");
   });
 
   // Edit transaction
-  $(".editTransaction").click(function () {
+  $(document).on("click", ".editTransaction", function () {
     var id = $(this).data("id");
     window.location.href = "/transactions/edit/" + id;
   });
 
   // Delete transaction
-  $(".deleteTransaction").click(function () {
+  $(document).on("click", ".deleteTransaction", function () {
     var id = $(this).data("id");
+
+    $("#deleteTransactionModal").attr("data-id", "");
     $("#deleteTransactionModal").attr("data-id", id);
   });
 
   $("#deleteTransactionModal").click(function () {
-    var id = $(this).data("id");
+    var idDelete = $("#deleteTransactionModal").attr("data-id");
     $.ajax({
-      url: "/transactions/" + id,
+      url: "/transactions/" + idDelete,
       type: "DELETE",
-    }).done(function (data) {
-      if (!data.error) {
-        $(".filters .tag.is-selected").click();
-      }
+    }).done(function () {
+      $(".filters .tag.is-selected").click();
     });
   });
 

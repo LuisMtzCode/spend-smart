@@ -12,7 +12,7 @@ Este proyecto es una aplicación web para realizar un seguimiento de los gastos 
 1. Clona este repositorio en tu máquina local.
 2. Abre una terminal en la carpeta raíz del proyecto.
 3. Ejecuta el comando `npm install` para instalar las dependencias del proyecto.
-4. Crea un archivo `.env.local` en la carpeta raíz del proyecto y agrega las variables de entorno necesarias (consulte el archivo `.env.example` para obtener un ejemplo).
+4. Crea un archivo `.env` en la carpeta raíz del proyecto y agrega las variables de entorno necesarias (consulte el archivo `.env.example` para obtener un ejemplo).
 5. Ejecuta el comando `npm start` para iniciar el servidor o `npm run dev` para inicar y reiniciar el servidor por cada cambio.
 
 ## Uso

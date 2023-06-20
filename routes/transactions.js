@@ -4,6 +4,8 @@ import {
   getIcons,
   getTransaction,
   getTransactions,
+  addExpense,
+  editExpense,
   deleteTransaction,
   getChartIncomesVsExpenses,
   getChartWeekExpenses,
@@ -12,19 +14,19 @@ import {
 const router = express.Router();
 const MAIN_TEMPLATE = "transactions";
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const queryParams = req.query;
   res.render("transaction-list", {
-    transactions: getTransactions(queryParams),
+    transactions: await getTransactions(queryParams),
     layout: false,
   });
 });
 
-router.get("/add/:category", (req, res) => {
+router.get("/add/:category", async (req, res) => {
   const category = req.params.category;
 
-  const userInfo = getUserInfo();
-  const icons = getIcons();
+  const userInfo = await getUserInfo();
+  const icons = await getIcons();
 
   res.render(MAIN_TEMPLATE, {
     ...userInfo,
@@ -33,12 +35,12 @@ router.get("/add/:category", (req, res) => {
   });
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", async (req, res) => {
   const id = req.params.id;
-  const userInfo = getUserInfo();
-  const icons = getIcons();
+  const userInfo = await getUserInfo();
+  const icons = await getIcons();
 
-  const transaction = getTransaction(id);
+  const transaction = await getTransaction(id);
 
   res.render(MAIN_TEMPLATE, {
     ...userInfo,
@@ -47,28 +49,26 @@ router.get("/edit/:id", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
-  //   const { id, description, icon, amount } = req.body;
+router.post("/", async (req, res) => {
   const { id } = req.body;
-  let error = false;
   if (id) {
     // Edit
+    res.json(await editExpense(req.body));
   } else {
     // Add
+    res.json(await addExpense(req.body));
   }
-  res.json({ error });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const id = req.params.id;
-
-  res.json(deleteTransaction(id));
+  res.json(await deleteTransaction(id));
 });
 
-router.get("/charts", (_req, res) => {
+router.get("/charts", async (_req, res) => {
   res.json({
-    incomesVsExpenses: getChartIncomesVsExpenses(),
-    weekExpenses: getChartWeekExpenses(),
+    incomesVsExpenses: await getChartIncomesVsExpenses(),
+    weekExpenses: await getChartWeekExpenses(),
   });
 });
 
