@@ -1,6 +1,10 @@
 import express from "express";
 import { create } from "express-handlebars";
-import { getUserInfo, getTransactions } from "./db/index.js";
+import {
+  getUserInfo,
+  getExpensesCategories,
+  getTransactions,
+} from "./db/index.js";
 import bodyParser from "body-parser";
 
 // Routes
@@ -22,17 +26,20 @@ const hbs = create({
 
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 app.use(express.static("public/"));
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   const queryParams = req.query;
-  const userInfo = getUserInfo();
+  const userInfo = await getUserInfo();
+
   res.render("home", {
     ...userInfo,
-    transactions: getTransactions(queryParams),
+    expensesCategories: await getExpensesCategories(),
+    transactions: await getTransactions(queryParams),
   });
 });
 
